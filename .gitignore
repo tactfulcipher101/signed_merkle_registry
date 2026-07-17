@@ -1,0 +1,32 @@
+# Node
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Rust / Noir / wasm artifacts
+target/
+*.wasm
+
+# Logs
+logs/
+*.log
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Environment
+.env
+
+# Nargo / prover targets
+target/
+proof/
+
+# Ignore large dependencies
+**/node_modules/
+
+# lockfiles (optional)
+# package-lock.json

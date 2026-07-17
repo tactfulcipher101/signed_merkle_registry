@@ -1,0 +1,6 @@
+[package]
+name = "signed_merkle_registry"
+type = "bin"
+authors = ["Ibrahim"]
+
+[dependencies]
