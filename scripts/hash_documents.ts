@@ -1,20 +1,40 @@
-import { DocumentRecord } from "./types/document";
-import { stringToBigInt } from "./utils/encoding";
-import { getPoseidon } from "./utils/poseidon";
+import { readFile } from "fs/promises";
+import path from "path";
 
-export async function hashDocument(
-    document: DocumentRecord
-): Promise<bigint> {
+import { getDocumentFiles } from "./utils/files";
+import { sha256 } from "./utils/sha256";
+import { digestToField } from "./utils/field";
+import { poseidonHash } from "./utils/poseidon";
 
-    const poseidon = await getPoseidon();
+async function main() {
 
-    const content = stringToBigInt(document.content);
+    const files = await getDocumentFiles();
 
-    const hash = poseidon([
-        BigInt(document.id),
-        BigInt(document.version),
-        content
-    ]);
+    console.log("\nHashing Documents\n");
 
-    return poseidon.F.toObject(hash) as bigint;
+    for (let i = 0; i < files.length; i++) {
+
+        const file = files[i];
+
+        const content = await readFile(file, "utf8");
+
+        const digest = sha256(content);
+
+        const field = digestToField(digest);
+
+        const leaf = await poseidonHash([
+            BigInt(i + 1),
+            field
+        ]);
+
+        console.log(path.basename(file));
+
+        console.log("SHA256 :", digest);
+
+        console.log("Leaf   :", leaf.toString());
+
+        console.log();
+    }
 }
+
+main();

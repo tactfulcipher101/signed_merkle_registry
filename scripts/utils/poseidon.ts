@@ -1,14 +1,19 @@
 import { buildPoseidon } from "circomlibjs";
 
-let poseidonInstance: Awaited<ReturnType<typeof buildPoseidon>> | null = null;
+let poseidon: Awaited<ReturnType<typeof buildPoseidon>> | null = null;
 
-/**
- * Returns a singleton Poseidon instance.
- */
 export async function getPoseidon() {
-    if (!poseidonInstance) {
-        poseidonInstance = await buildPoseidon();
+    if (!poseidon) {
+        poseidon = await buildPoseidon();
     }
 
-    return poseidonInstance;
+    return poseidon;
+}
+
+export async function poseidonHash(inputs: bigint[]): Promise<bigint> {
+    const p = await getPoseidon();
+
+    const hash = p(inputs);
+
+    return p.F.toObject(hash) as bigint;
 }

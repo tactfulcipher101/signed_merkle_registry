@@ -1,2 +1,4 @@
-x = 0
-y = 0
+indices = [false, false]
+leaf = 0
+root = 0
+siblings = [0, 0]

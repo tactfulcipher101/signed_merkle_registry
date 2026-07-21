@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
-  "hash": "tsx scripts/hash_documents.ts",
-  "tree": "tsx scripts/build_tree.ts",
-  "proofs": "tsx scripts/generate_proofs.ts",
-  "sign": "tsx scripts/sign_root.ts",
-  "export": "tsx scripts/export_inputs.ts"
-},
+  "scripts": {
+    "hash": "tsx scripts/hash_documents.ts",
+    "tree": "tsx scripts/build_tree.ts",
+    "proofs": "tsx scripts/generate_proofs.ts",
+    "sign": "tsx scripts/sign_root.ts",
+    "export": "tsx scripts/export_inputs.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "circomlibjs": "^0.1.7",
+    "fast-glob": "^3.3.3",
     "ffjavascript": "^0.3.1",
     "merkletreejs": "^0.6.0"
   },
