@@ -1,1 +1,5 @@
 Invoice #0004
+
+Client: Company B
+Amount: ₦500,000
+Status: Paid

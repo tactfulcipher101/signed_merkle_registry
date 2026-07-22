@@ -1,1 +1,6 @@
-Alice works at Company A.
+Employment Contract
+
+Employee: Alice Johnson
+Employer: Company A
+Position: Software Engineer
+Start Date: January 1, 2026

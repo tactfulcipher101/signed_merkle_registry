@@ -79,6 +79,22 @@ export class MerkleTree {
         indices
     };
 }
+
+getSerializableProof(index: number) {
+
+    const proof = this.getProof(index);
+
+    return {
+
+        leaf: this.levels[0][index].toString(),
+
+        siblings: proof.siblings.map(x => x.toString()),
+
+        indices: proof.indices
+
+    };
+}
+
 toJSON() {
     return {
         leaves: this.levels[0].map(leaf => leaf.toString()),

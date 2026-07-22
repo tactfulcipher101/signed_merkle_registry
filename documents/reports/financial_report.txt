@@ -1,1 +1,5 @@
-Revenue = 500000
+Financial Report
+
+Revenue: ₦50,000,000
+Expenses: ₦32,000,000
+Profit: ₦18,000,000
