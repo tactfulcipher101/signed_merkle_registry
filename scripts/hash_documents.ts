@@ -1,3 +1,3 @@
-import { publishHashes } from "./services/publisher";
+import { publishHashes } from "./services/publisher.js";
 
 publishHashes();

@@ -5,6 +5,7 @@
     "moduleResolution": "NodeNext",
 
     "strict": true,
+    "noImplicitAny": true,
 
     "esModuleInterop": true,
 
@@ -14,7 +15,9 @@
 
     "forceConsistentCasingInFileNames": true,
 
-    "outDir": "./dist"
+    "rootDir": "./scripts",
+    "outDir": "./dist",
+    "types": ["node"]
   },
 
   "include": [

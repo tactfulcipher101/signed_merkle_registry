@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 
-import { loadDocuments } from "./document_loader";
-import { hashDocument } from "./document_hasher";
+import { loadDocuments } from "./document_loader.js";
+import { hashDocument } from "./document_hasher.js";
 
 export async function publishHashes() {
 

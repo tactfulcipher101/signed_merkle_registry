@@ -1,4 +1,4 @@
-import { poseidonHash } from "./poseidon";
+import { poseidonHash } from "./poseidon.js";
 
 export interface MerkleProof {
     siblings: bigint[];

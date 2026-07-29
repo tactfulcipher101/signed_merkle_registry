@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@noble/curves": "^1.4.2",
     "circomlibjs": "^0.1.7",
     "fast-glob": "^3.3.3",
     "ffjavascript": "^0.3.1",
