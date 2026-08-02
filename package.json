@@ -9,6 +9,7 @@
     "proofs": "tsx scripts/generate_proofs.ts",
     "sign": "tsx scripts/sign_root.ts",
     "export": "tsx scripts/export_inputs.ts",
+    "prover": "tsx scripts/generate_prover_toml.ts",
     "ui": "cd ui && vite",
     "ui:build": "cd ui && vite build"
   },
@@ -16,8 +17,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aztec/bb.js": "^5.1.0",
     "@noble/curves": "^1.4.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "circomlibjs": "^0.1.7",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "fast-glob": "^3.3.3",
     "ffjavascript": "^0.3.1",
     "glob": "^13.0.6",

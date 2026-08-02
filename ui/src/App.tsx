@@ -98,12 +98,13 @@ export default function App() {
   const [documentHash, setDocumentHash] = useState('');
   const [organizationPdfFileName, setOrganizationPdfFileName] = useState('No PDF selected');
   const [organizationPdfMessage, setOrganizationPdfMessage] = useState('Upload a PDF document for this registry.');
+  const [publications, setPublications] = useState<Array<{ id: number; title: string; summary: string }>>([]);
 
   const stats = useMemo(() => [
-    { label: 'Total Registries', value: '3' },
-    { label: 'Documents Published', value: '128' },
-    { label: 'Publications', value: '12' },
-    { label: 'Verifications', value: '452' },
+    { label: 'Total Registries', value: '0' },
+    { label: 'Documents Published', value: '0' },
+    { label: 'Publications', value: '0' },
+    { label: 'Verifications', value: '0' },
   ], []);
 
   const activeOrganization = organizationOptionsState.find((org) => org.id === selectedOrganization) ?? organizationOptionsState[0];
@@ -440,11 +441,11 @@ export default function App() {
                 <p>{description}</p>
                 <div className="meta-row">
                   <span>Documents</span>
-                  <strong>128</strong>
+                  <strong>0</strong>
                 </div>
                 <div className="meta-row">
                   <span>Publications</span>
-                  <strong>12</strong>
+                  <strong>0</strong>
                 </div>
               </div>
             </article>
@@ -466,13 +467,11 @@ export default function App() {
                 <span>Status</span>
                 <span>Published</span>
               </div>
-              {['Certificate.pdf', 'Transcript.pdf', 'Contract.pdf'].map((name) => (
-                <div key={name} className="table-row">
-                  <span>{name}</span>
-                  <span className="badge">Ready</span>
-                  <span>Today</span>
-                </div>
-              ))}
+              <div className="table-row">
+                <span>No documents yet</span>
+                <span className="badge">Waiting</span>
+                <span>—</span>
+              </div>
             </div>
           </section>
         )}
