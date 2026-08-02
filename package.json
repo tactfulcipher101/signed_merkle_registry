@@ -8,7 +8,9 @@
     "tree": "tsx scripts/build_tree.ts",
     "proofs": "tsx scripts/generate_proofs.ts",
     "sign": "tsx scripts/sign_root.ts",
-    "export": "tsx scripts/export_inputs.ts"
+    "export": "tsx scripts/export_inputs.ts",
+    "ui": "cd ui && vite",
+    "ui:build": "cd ui && vite build"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +27,7 @@
     "@types/glob": "^8.1.0",
     "@types/node": "^26.1.1",
     "tsx": "^4.23.1",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "^5.4.0"
   }
 }

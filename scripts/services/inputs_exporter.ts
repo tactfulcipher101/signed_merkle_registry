@@ -19,6 +19,9 @@ export interface NoirInput {
 
 export interface InputsArtifact {
     generatedAt: string;
+    organizationName: string;
+    registryName: string;
+    description?: string;
     documentCount: number;
     depth: number;
     inputs: Array<{
@@ -73,6 +76,9 @@ export async function exportNoirInputs(): Promise<InputsArtifact> {
 
     return {
         generatedAt: new Date().toISOString(),
+        organizationName: hashArtifact.organizationName,
+        registryName: hashArtifact.registryName,
+        description: hashArtifact.description,
         documentCount: hashArtifact.documentCount,
         depth,
         inputs

@@ -4,7 +4,7 @@ import { buildMerkleTree } from "./services/tree_builder.js";
 
 async function main() {
 
-    const { tree } = await buildMerkleTree();
+    const { tree, registry } = await buildMerkleTree();
 
     await fs.mkdir(
         "outputs/tree",
@@ -15,6 +15,9 @@ async function main() {
         "outputs/tree/tree.json",
         JSON.stringify({
             generatedAt: new Date().toISOString(),
+            organizationName: registry.organizationName,
+            registryName: registry.registryName,
+            description: registry.description,
             ...tree.toJSON()
         }, null, 2)
     );

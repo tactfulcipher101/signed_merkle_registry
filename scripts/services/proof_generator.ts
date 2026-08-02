@@ -39,6 +39,9 @@ export async function generateProofs(): Promise<ProofArtifact> {
 
     return {
         generatedAt: new Date().toISOString(),
+        organizationName: hashArtifact.organizationName,
+        registryName: hashArtifact.registryName,
+        description: hashArtifact.description,
         rootHash: tree.root().toString(),
         proofs
     };

@@ -2,7 +2,7 @@ import { sha256 } from "./sha256.js";
 import { digestToField } from "./field.js";
 import { poseidonHash } from "./poseidon.js";
 
-export async function hashLeaf(content: string): Promise<bigint> {
+export async function hashLeaf(content: string | Uint8Array | Buffer): Promise<bigint> {
     // Step 1: SHA-256
     const digest = sha256(content);
 

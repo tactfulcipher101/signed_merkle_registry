@@ -10,7 +10,7 @@ export async function hashDocument(
     id: number
 ): Promise<PublishedDocument> {
 
-    const content = await fs.readFile(file, "utf8");
+    const content = await fs.readFile(file);
 
     const digest = sha256(content);
 

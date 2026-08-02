@@ -2,9 +2,11 @@ import fs from "fs/promises";
 
 import { loadDocuments } from "./document_loader.js";
 import { hashDocument } from "./document_hasher.js";
+import { loadRegistryConfig } from "../registry_config.js";
 
 export async function publishHashes() {
 
+    const registryConfig = await loadRegistryConfig();
     const files = await loadDocuments();
 
     const documents = [];
@@ -22,9 +24,10 @@ export async function publishHashes() {
     const artifact = {
 
         generatedAt: new Date().toISOString(),
-
+        organizationName: registryConfig.organizationName,
+        registryName: registryConfig.registryName,
+        description: registryConfig.description,
         documentCount: documents.length,
-
         documents
 
     };

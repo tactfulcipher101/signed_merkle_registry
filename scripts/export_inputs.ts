@@ -21,6 +21,9 @@ async function main() {
             `outputs/inputs/document_${input.documentId}.json`,
             JSON.stringify({
                 generatedAt: artifact.generatedAt,
+                organizationName: artifact.organizationName,
+                registryName: artifact.registryName,
+                description: artifact.description,
                 documentId: input.documentId,
                 filename: input.filename,
                 ...input.noirInput

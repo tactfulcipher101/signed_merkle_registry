@@ -20,7 +20,12 @@ export async function buildMerkleTree() {
 
     return {
         tree,
-        leaves
+        leaves,
+        registry: {
+            organizationName: artifact.organizationName,
+            registryName: artifact.registryName,
+            description: artifact.description
+        }
     };
 
 }

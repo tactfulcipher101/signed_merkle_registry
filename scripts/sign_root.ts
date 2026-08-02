@@ -2,6 +2,7 @@ import fs from "fs/promises";
 
 import { buildMerkleTree } from "./services/tree_builder.js";
 import { signRoot } from "./services/signer.js";
+import { loadRegistryConfig } from "./registry_config.js";
 import { SignatureArtifact } from "./types/signature.js";
 
 async function main() {
@@ -15,8 +16,13 @@ async function main() {
     const { signature, publicKey, noirSignature, noirPublicKey } = await signRoot(root);
 
     // Create artifact
+    const registryConfig = await loadRegistryConfig();
+
     const artifact: SignatureArtifact = {
         generatedAt: new Date().toISOString(),
+        organizationName: registryConfig.organizationName,
+        registryName: registryConfig.registryName,
+        description: registryConfig.description,
         rootHash: root.toString(),
         publicKey,
         signature,
